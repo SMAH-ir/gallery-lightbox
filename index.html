@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description"
+          content="A multi-level image gallery with a lightbox viewer, tabs and thumbnails, built with Swiper.">
+     <link rel="icon" href="data:,">
+     <title>Gallery Lightbox — Multi-Level Image Viewer</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+     <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+     <h1 class="visually-hidden">Gallery Lightbox</h1>
+     <main class="swiper gallery-preview">
+          <div class="swiper-wrapper">
+               <div class="swiper-slide">
+                    <img src="images/img_nature.jpg" alt="Nature preview" class="gallery-preview__image clickable"
+                         tabindex="0" role="button" data-index="0">
+               </div>
+               <div class="swiper-slide">
+                    <img src="images/img_mountains.jpg" alt="Mountains preview" class="gallery-preview__image clickable"
+                         tabindex="0" role="button" data-index="1">
+               </div>
+               <div class="swiper-slide">
+                    <img src="images/img_snow.jpg" alt="Snow preview" class="gallery-preview__image clickable"
+                         tabindex="0" role="button" data-index="2">
+               </div>
+               <div class="swiper-slide">
+                    <img src="images/img_lights.jpg" alt="Lights preview" class="gallery-preview__image clickable"
+                         tabindex="0" role="button" data-index="3">
+               </div>
+          </div>
+     </main>
+
+     <div id="lightboxModal" class="lightbox" role="dialog" aria-modal="true" aria-label="Image Gallery Lightbox">
+          <div class="lightbox__toolbar">
+               <button type="button" class="lightbox__close-btn" id="closeModalBtn" aria-label="Close gallery">
+                    &times;
+               </button>
+
+               <div class="lightbox__tabs" role="group" aria-label="Gallery categories">
+                    <button type="button" class="lightbox__tab lightbox__tab--active"
+                         data-target="official">Official</button>
+                    <button type="button" class="lightbox__tab" data-target="buyer">Reviews</button>
+                    <button type="button" class="lightbox__tab" data-target="informal">Lifestyle</button>
+               </div>
+          </div>
+
+          <div class="lightbox__content">
+               <div class="swiper lightbox__main-slider">
+                    <div class="swiper-wrapper">
+                         <div class="swiper-slide" data-group="official"><img src="images/img_nature.jpg" alt="Nature"
+                                   loading="lazy"></div>
+                         <div class="swiper-slide" data-group="official"><img src="images/img_mountains.jpg"
+                                   alt="Mountains" loading="lazy"></div>
+                         <div class="swiper-slide" data-group="official"><img src="images/img_snow.jpg" alt="Snow"
+                                   loading="lazy"></div>
+                         <div class="swiper-slide" data-group="official"><img src="images/img_lights.jpg" alt="Lights"
+                                   loading="lazy"></div>
+
+                         <div class="swiper-slide" data-group="buyer">
+                              <div class="review">
+                                   <div class="review__details">
+                                        <div class="review__header">
+                                             <div class="review__author">Michael Carter</div>
+                                             <span class="review__badge">Verified Buyer</span>
+                                             <div class="review__rating" role="img" aria-label="5 out of 5 stars">★★★★★
+                                             </div>
+                                        </div>
+                                        <div class="review__text">Excellent in every way — the camera quality genuinely
+                                             rivals flagship phones.</div>
+                                        <div class="review__footer">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+                                                  viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                                  <path
+                                                       d="M22 6h-2V4c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v2H2c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h20c.55 0 1-.45 1-1V7c0-.55-.45-1-1-1zM6 4h12v2H6V4zm14 12H4V8h16v8z" />
+                                             </svg>
+                                             <span>TechHub Store</span>
+                                        </div>
+                                   </div>
+                                   <div class="swiper review__slider">
+                                        <div class="swiper-wrapper">
+                                             <div class="swiper-slide"><img src="images/review-1.jpg"
+                                                       alt="Product photo 1" loading="lazy"></div>
+                                             <div class="swiper-slide"><img src="images/review-2.jpg"
+                                                       alt="Product photo 2" loading="lazy"></div>
+                                             <div class="swiper-slide"><img src="images/review-3.jpg"
+                                                       alt="Product photo 3" loading="lazy"></div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+
+                         <div class="swiper-slide" data-group="informal"><img src="images/desert.jpg"
+                                   alt="Desert dunes at sunset" loading="lazy"></div>
+                         <div class="swiper-slide" data-group="informal"><img src="images/beach.jpg" alt="Beach"
+                                   loading="lazy"></div>
+                         <div class="swiper-slide" data-group="informal"><img src="images/forest.jpg"
+                                   alt="Misty pine forest" loading="lazy"></div>
+                         <div class="swiper-slide" data-group="informal"><img src="images/lake.jpg" alt="Lake at dusk"
+                                   loading="lazy"></div>
+                         <div class="swiper-slide" data-group="informal"><img src="images/snow-peaks.jpg"
+                                   alt="Snowy peaks" loading="lazy"></div>
+                         <div class="swiper-slide" data-group="informal"><img src="images/city-night.jpg"
+                                   alt="City at night" loading="lazy"></div>
+                    </div>
+               </div>
+
+               <div class="swiper-button-prev lightbox__nav-prev" role="button" tabindex="0"
+                    aria-label="Previous slide"></div>
+               <div class="swiper-button-next lightbox__nav-next" role="button" tabindex="0" aria-label="Next slide">
+               </div>
+          </div>
+
+          <div class="swiper lightbox__thumbs-slider">
+               <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/img_nature.jpg" alt="Nature thumbnail" loading="lazy">
+                    </div>
+                    <div class="swiper-slide"><img src="images/img_mountains.jpg" alt="Mountains thumbnail"
+                              loading="lazy"></div>
+                    <div class="swiper-slide"><img src="images/img_snow.jpg" alt="Snow thumbnail" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="images/img_lights.jpg" alt="Lights thumbnail" loading="lazy">
+                    </div>
+                    <div class="swiper-slide"><img src="images/review-1.jpg" alt="Reviews thumbnail" loading="lazy">
+                    </div>
+                    <div class="swiper-slide"><img src="images/desert.jpg" alt="Desert thumbnail" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="images/beach.jpg" alt="Beach thumbnail" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="images/forest.jpg" alt="Forest thumbnail" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="images/lake.jpg" alt="Lake thumbnail" loading="lazy"></div>
+                    <div class="swiper-slide"><img src="images/snow-peaks.jpg" alt="Snowy peaks thumbnail"
+                              loading="lazy"></div>
+                    <div class="swiper-slide"><img src="images/city-night.jpg" alt="City thumbnail" loading="lazy">
+                    </div>
+               </div>
+          </div>
+     </div>
+
+     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+     <script src="js/index.js"></script>
+</body>
+
+</html>
